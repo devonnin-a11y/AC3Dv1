@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>IslandSim 3D v15</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- BOOT LOADING (before Home) -->
+<div id="boot" class="screen show">
+  <div class="screen-card">
+    <div class="logo">🏝️ IslandSim</div>
+    <div class="spinner"></div>
+    <div class="muted">Loading assets…</div>
+  </div>
+</div>
+
+<!-- HOME SCREEN -->
+<div id="home" class="screen">
+  <div class="screen-card">
+    <div class="logo">🏝️ IslandSim</div>
+    <div class="subtitle">Animal Crossing UI • Sims-style needs • New World progression</div>
+    <div class="home-grid">
+      <button class="big" onclick="startNew()">✨ New Game</button>
+      <button class="big" onclick="openLoadMenu()">💾 Load Game</button>
+    </div>
+    <div id="load-menu" class="home-panel">
+      <div class="panel-title">Choose a save slot</div>
+      <div class="slots">
+        <button onclick="startLoad(1)">Load Slot 1</button>
+        <button onclick="startLoad(2)">Load Slot 2</button>
+        <button onclick="startLoad(3)">Load Slot 3</button>
+      </div>
+      <button class="ghost" onclick="closeLoadMenu()">Close</button>
+    </div>
+    <div class="muted small">Tip: You can press <b>Esc</b> anytime to close menus.</div>
+  </div>
+</div>
+
+<!-- GAME LOADING (after New/Load) -->
+<div id="gameLoad" class="screen">
+  <div class="screen-card">
+    <div class="logo">Preparing world…</div>
+    <div class="spinner"></div>
+    <div class="muted" id="gameLoadMsg">Spawning village…</div>
+  </div>
+</div>
+
+<!-- GAME UI -->
+<div id="game" class="game-root">
+  <div id="ui-top">
+    <span id="area">🏘 Village</span>
+    <div id="player-level">Lv 1</div>
+    <button class="btn" onclick="togglePhone()">📱</button>
+  </div>
+
+  <div id="needs-panel">
+    <div>🍽 <span id="need-hunger"></span></div>
+    <div>⚡ <span id="need-energy"></span></div>
+    <div>💬 <span id="need-social"></span></div>
+  </div>
+
+  <div id="ui-bottom">
+    <div id="dpad">
+      <button data-dir="up">⬆</button>
+      <div>
+        <button data-dir="left">⬅</button>
+        <button data-dir="down">⬇</button>
+        <button data-dir="right">➡</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="overlay" onclick="closeAllPanels()"></div>
+
+  <div id="phone" class="sheet" aria-hidden="true">
+    <div class="sheet-card">
+      <h3>📱 NookPhone</h3>
+      <button onclick="toggleInventory()">🎒 Inventory</button>
+      <button onclick="toggleHousing()">🏠 Housing</button>
+      <button onclick="toggleShops()">🛒 Shops</button>
+      <button onclick="toggleQuests()">📜 Quests</button>
+      <button onclick="toggleSaves()">💾 Saves</button>
+      <button class="ghost" onclick="closeAllPanels()">Close</button>
+    </div>
+  </div>
+
+  <div id="inventory" class="panel"></div>
+  <div id="housing" class="panel"></div>
+  <div id="shops" class="panel"></div>
+  <div id="quests" class="panel"></div>
+  <div id="saves" class="panel"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.159.0/build/three.min.js"></script>
+<script src="js/state.js"></script>
+<script src="js/saveSlots.js"></script>
+<script src="js/animationState.js"></script>
+<script src="js/input.js"></script>
+<script src="js/npcs.js"></script>
+<script src="js/housing.js"></script>
+<script src="js/shops.js"></script>
+<script src="js/quests.js"></script>
+<script src="js/invasions.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/three.js"></script>
+<script src="js/game.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
